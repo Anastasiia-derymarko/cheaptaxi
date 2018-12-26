@@ -4,7 +4,6 @@ var infoWindow;
 var googleGeocoer;
 
 function createMarker(position) {
-
     new google.maps.Marker({
         position: position,
         map: map
@@ -41,20 +40,21 @@ function createMarker(position) {
     //   handleLocationError(false, infoWindow, map.getCenter());
     // }
 
-    // var request = {
-    //   query: 'улица Анатолия Петрицкого, 10, Киев',
-    //   fields: ['formatted_address', 'name'],
-    //   };
+    var request = {
+      query: 'улица Анатолия Петрицкого, 10, Киев',
+      fields: ['formatted_address', 'name'],
+      };
 
-    //   service = new google.maps.places.PlacesService(map);
-    //   service.findPlaceFromQuery(request, placesStatus);
+      service = new google.maps.places.PlacesService(map);
+      service.findPlaceFromQuery(request, placesStatus);
   
-    //   googleGeocoer = new google.maps.Geocoder;
+      googleGeocoer = new google.maps.Geocoder;
 
     function placesStatus(results, status) {
       if (status == google.maps.places.PlacesServiceStatus.OK) {
         for (var i = 0; i < results.length; i++) {
           var place = results[i];
+          console.log(place)
             googleGeocoer.geocode({address:place.formatted_address}, function(e){
                createMarker(e[0].geometry.location);
             });
@@ -75,13 +75,15 @@ function createMarker(position) {
   };
 
   autocomplete = new google.maps.places.Autocomplete(beginningRoute, options);
-  autocomplete.setFields(['place_id']);
+  autocomplete.setFields(['name']);
 
   autocomplete.addListener('place_changed', function () {
     var place = autocomplete.getPlace();
     console.log(place)
+      googleGeocoer.geocode({address:place.name}, function(e){
+         createMarker(e[0].geometry.location);
+      });
   })
-
 } 
 
 
