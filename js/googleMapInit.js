@@ -15,7 +15,10 @@ var googleGeocoer;
 
     map = new google.maps.Map(document.getElementById('map'), {
       center: mapCenter,
-      zoom: 10
+      zoom: 10,
+      streetViewControl: false,
+      mapTypeControl: false,
+      fullscreenControl: false
     });
 
     var rendererOptions = {
