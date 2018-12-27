@@ -11,12 +11,13 @@ var googleGeocoer;
   function initMap() {
     let routeService = new google.maps.DirectionsService(map);
     var mapCenter = new google.maps.LatLng(50.4473889,30.381202000000002);
-
+    var markers = [];
 
     map = new google.maps.Map(document.getElementById('map'), {
       center: mapCenter,
       zoom: 10
     });
+
     var rendererOptions = {
       map: map
     }
@@ -32,7 +33,6 @@ var googleGeocoer;
          directionsDisplay.setDirections(response);
       })     
     }
-    var markers = [];
 
     function addMarker(location) {
         var marker = new google.maps.Marker({
@@ -41,9 +41,12 @@ var googleGeocoer;
         });
         markers.push(marker);
     }
-    
-    function deleteMarkers(marker) {
-      
+
+    function deleteMarkers() {
+     for (var i = 0; i < markers.length; i++) {
+        markers[i].setMap(null);
+      }
+      markers = [];
     }
 
     // Try geolocation.
@@ -94,7 +97,7 @@ var googleGeocoer;
 
   var defaultBounds = new google.maps.LatLngBounds(
   new google.maps.LatLng(50.45466, 30.5238));    
-
+//dosnt work defaultBounds 
   var options = {
     bounds: defaultBounds,
     types: ['geocode']
@@ -108,27 +111,33 @@ var googleGeocoer;
   autocompleteBeginningRoute.addListener('place_changed', function () {
     let place = autocompleteBeginningRoute.getPlace();
       googleGeocoer.geocode({address:place.name}, function(results, status){
-          let resultsLocation = results[0].geometry.location;
-         addMarker(resultsLocation);
-         directionsRequest.origin = {'lat':resultsLocation.lat(), 'lng':resultsLocation.lng()};
+        if (status === 'OK'){
+            let resultsLocation = results[0].geometry.location;
+            addMarker(resultsLocation);
+            directionsRequest.origin = {'lat':resultsLocation.lat(), 'lng':resultsLocation.lng()};
 
          if (directionsRequest.origin && directionsRequest.destination) {
-           creatDirection(directionsRequest); 
+            deleteMarkers();
+            creatDirection(directionsRequest); 
          }
+        }
       });
   })
 
   autocompleteEndRoute.addListener('place_changed', function () {
     let place = autocompleteEndRoute.getPlace();
       googleGeocoer.geocode({address:place.name}, function(results, status){
+        if(status === 'OK'){
           let resultsLocation = results[0].geometry.location;
+          addMarker(resultsLocation);
 
-         addMarker(resultsLocation);
          directionsRequest.destination = {'lat':resultsLocation.lat(), 'lng':resultsLocation.lng()}
 
          if (directionsRequest.origin && directionsRequest.destination) {
-           creatDirection(directionsRequest); 
+           creatDirection(directionsRequest);
+           deleteMarkers()
          }
+        }
       });
   })
 } 
