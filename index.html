@@ -5,27 +5,80 @@
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-    <style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      #map {
-        width: 50%;
-        height: 300px; 
-        margin: 100px auto;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-    </style>
+    <link rel="stylesheet" href="build/style.css">
   </head>
+
   <body onload='initMap()'>
-    <label>Откуда <input type="text" id="js-beginning-route"></label>
-    <label>Куда <input type="text" id="js-end-route"></label>
-    <div id="map"></div>
+    <div class="wrapper">
+      <header>
+        <input type="text" id="js-beginning-route" placeholder="Откуда">
+        <input type="text" id="js-end-route" placeholder="Куда">
+        <button>Поиск</button>
+      </header>
+      <div id="map"></div>
+<!--       <div class="result">
+        <ul>
+          <li>
+            <div class="company">
+              <span>Taxify</span>
+              <img src="" alt="">
+            </div>
+            <span class="price">80 грн.</span>
+          </li>
+          <li>
+            <div class="company">
+              <img src="" alt="">
+              <span>Uber</span>
+            </div>
+            <span class="price">85 грн.</span>
+          </li>
+          <li>
+            <div class="company">
+              <img src="" alt="">
+              <span>Uklon</span>
+            </div>
+            <span class="price">87 грн.</span>
+          </li>
+          <li>
+            <div class="company">
+              <img src="" alt="">
+              <span>Ugo</span>
+            </div>
+            <span class="price">90 грн.</span>
+          </li>
+          <li>
+            <div class="company">
+              <img src="" alt="">
+              <span>579</span>
+            </div>
+            <span class="price">95 грн.</span>
+          </li>
+          <li>
+            <div class="company">
+              <img src="" alt="">
+              <span>OnTaxi</span>
+            </div>
+            <span class="price">100 грн.</span>
+          </li>
+          <li>
+            <div class="company">
+              <img src="" alt="">
+              <span>898</span>
+            </div>
+            <span class="price">105 грн.</span>
+          </li>
+          <li>
+            <div class="company">
+              <img src="" alt="">
+              <span>838</span>
+            </div>
+            <span class="price">110 грн.</span>
+          </li>
+        </ul>
+      </div> -->
+    </div>
+
      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_517SGS_Zp0SRdK_W7B613DfaL4k6I_U&libraries=places" async defer></script>
-     <script src ="js/googleMapInit.js"></script>
+     <script src ="src/js/googleMapInit.js"></script>
   </body>
 </html>

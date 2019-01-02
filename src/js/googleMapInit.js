@@ -3,11 +3,6 @@ var service;
 var infoWindow;
 var googleGeocoer;
 
-
-
-
-
-
   function initMap() {
     let routeService = new google.maps.DirectionsService(map);
     var mapCenter = new google.maps.LatLng(50.4473889,30.381202000000002);
