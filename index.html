@@ -9,76 +9,90 @@
   </head>
 
   <body onload='initMap()'>
+    <nav class="nav">
+      <a href="" class="nav__logo">Best Taxi</a>
+      <a href="" class="nav__payment">Рачет</a>
+      <a href="" class="nav__companes">Компании</a>
+      <a href="" class="nav__about-us">О нас</a>
+    </nav>
     <div class="wrapper">
       <header>
         <input type="text" id="js-beginning-route" placeholder="Откуда">
         <input type="text" id="js-end-route" placeholder="Куда">
-        <button>Поиск</button>
+        <button id="findTaxi" disabled>Поиск</button>
       </header>
       <div id="map"></div>
-<!--       <div class="result">
-        <ul>
+      <div class="result">
+        <ul class="result__list-taxi">
           <li>
             <div class="company">
+              <img src="src/img/Logo Taxi/taxify.png" alt="">
               <span>Taxify</span>
-              <img src="" alt="">
             </div>
-            <span class="price">80 грн.</span>
+            <strong class="price"><span>80</span> грн.</strong>
           </li>
           <li>
             <div class="company">
-              <img src="" alt="">
+              <img src="src/img/Logo Taxi/uber.png" alt="">
               <span>Uber</span>
             </div>
-            <span class="price">85 грн.</span>
+            <strong class="price"><span>85</span> грн.</strong>
           </li>
           <li>
             <div class="company">
-              <img src="" alt="">
+              <img src="src/img/Logo Taxi/uklon.png" alt="">
               <span>Uklon</span>
             </div>
-            <span class="price">87 грн.</span>
+            <strong class="price"><span>87</span> грн.</strong>
           </li>
           <li>
             <div class="company">
-              <img src="" alt="">
+              <img src="src/img/Logo Taxi/ugo.png" alt="">
               <span>Ugo</span>
             </div>
-            <span class="price">90 грн.</span>
+            <strong class="price"><span>90</span> грн.</strong>
           </li>
           <li>
             <div class="company">
-              <img src="" alt="">
+              <img src="src/img/Logo Taxi/579.png" alt="">
               <span>579</span>
             </div>
-            <span class="price">95 грн.</span>
+            <strong class="price"><span>95</span> грн.</strong>
           </li>
           <li>
             <div class="company">
-              <img src="" alt="">
+              <img src="src/img/Logo Taxi/onTaxi.png" alt="">
               <span>OnTaxi</span>
             </div>
-            <span class="price">100 грн.</span>
+            <strong class="price"><span>100</span> грн.</strong>
           </li>
           <li>
             <div class="company">
-              <img src="" alt="">
+              <img src="src/img/Logo Taxi/898.png" alt="">
               <span>898</span>
             </div>
-            <span class="price">105 грн.</span>
+            <strong class="price"><span>105</span> грн.</strong>
           </li>
           <li>
             <div class="company">
-              <img src="" alt="">
+              <img src="src/img/Logo Taxi/838.png" alt="">
               <span>838</span>
             </div>
-            <span class="price">110 грн.</span>
+            <strong class="price"><span>110</span> грн.</strong>
           </li>
         </ul>
-      </div> -->
+        <ul class="result__list-info">
+          <li>Время:<strong>15:07</strong></li>
+          <li>Ожидание:<strong>~5 мин</strong></li>
+          <li>Растояние:<strong>11,4 км</strong></li>
+          <li>В дороге:<strong>~15 мин</strong></li>
+          <li>Прибытие:<strong>15:27</strong></li>
+        </ul>
+      </div>
     </div>
 
-     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_517SGS_Zp0SRdK_W7B613DfaL4k6I_U&libraries=places" async defer></script>
-     <script src ="src/js/googleMapInit.js"></script>
+<!--      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_517SGS_Zp0SRdK_W7B613DfaL4k6I_U&libraries=places" async defer></script>
+     <script src ="src/js/googleMapInit.js"></script> -->
+     <script src="src/js/renderResult.js"></script>
   </body>
 </html>

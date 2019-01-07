@@ -6,21 +6,26 @@ html, body {
   margin: 0;
   padding: 0;
   background: url("../src/img/background.jpg") no-repeat;
-  background-size: cover; }
+  background-size: cover;
+  font-family: sans-serif; }
+
+body {
+  height: 100vh;
+  overflow: hidden; }
 
 .wrapper {
   width: 70%;
   height: 100%;
   margin: 0 auto;
   display: flex;
-  justify-content: space-around;
   flex-direction: column;
   position: relative; }
   .wrapper header {
     width: 100%;
     font-size: 1rem;
     display: flex;
-    justify-content: space-around; }
+    justify-content: space-around;
+    margin: 3% auto; }
     @media screen and (max-width: 944px) {
       .wrapper header {
         flex-direction: column;
@@ -44,17 +49,63 @@ html, body {
       font-weight: bold;
       flex: 1;
       background: #f9b74f; }
+      .wrapper header button:hover {
+        cursor: pointer; }
       @media screen and (max-width: 944px) {
         .wrapper header button {
           margin: 0 auto; } }
   .wrapper #map {
     width: 100%;
-    height: 60%;
-    /*background: blue;*/ }
+    height: 60%; }
   .wrapper .result {
-    background: pink;
     width: 100%;
-    height: 70%;
-    position: absolute;
-    bottom: 5%;
-    left: 0; }
+    display: flex;
+    padding: 2%;
+    border-radius: 10px;
+    background: #f7efef;
+    display: none; }
+    .wrapper .result ul {
+      list-style: none;
+      font-size: 2vw; }
+      .wrapper .result ul li {
+        display: flex;
+        align-items: center; }
+        .wrapper .result ul li strong {
+          margin-left: auto;
+          font-size: 0.8em; }
+    .wrapper .result__list-taxi {
+      margin: 0 4% 0 0;
+      padding: 0 2% 0 0;
+      flex: 3;
+      border-right: 3px solid grey; }
+      .wrapper .result__list-taxi li {
+        margin-bottom: 3%;
+        font-weight: bold; }
+      .wrapper .result__list-taxi li:last-child {
+        margin-bottom: 0; }
+      .wrapper .result__list-taxi img {
+        width: 3vw;
+        margin-right: 1vw; }
+      .wrapper .result__list-taxi .company {
+        display: flex;
+        align-items: center; }
+    .wrapper .result__list-info {
+      margin: 0;
+      padding: 0;
+      flex: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around; }
+
+.nav {
+  background: #f7efef;
+  padding: 1%;
+  font-weight: bold;
+  font-size: 2.2vw; }
+  .nav a {
+    text-decoration: none;
+    color: black;
+    margin-right: 2%; }
+  .nav__logo {
+    padding-right: 2%;
+    border-right: 2px solid black; }

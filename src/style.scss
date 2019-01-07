@@ -1,5 +1,3 @@
-$reffd:#000;
-
 *{
   box-sizing: border-box;
 }
@@ -10,6 +8,12 @@ html, body {
   padding: 0;
   background: url('../src/img/background.jpg') no-repeat;
   background-size: cover;
+  font-family: sans-serif;
+}
+body{
+  height: 100vh;
+  overflow: hidden;
+
 }
 
 .wrapper{
@@ -17,7 +21,6 @@ html, body {
   height: 100%;
   margin: 0 auto;
   display: flex;
-  justify-content: space-around;
   flex-direction: column;
   position: relative;
   header{
@@ -25,11 +28,11 @@ html, body {
     font-size: 1rem;
     display: flex;
     justify-content: space-around;
+    margin: 3% auto;
     @media screen and (max-width: 944px) {
       flex-direction: column;
       align-items: flex-start;
     }
-
     input, button{
       padding: 1em 1.5em;
       border-radius: 5px;
@@ -52,6 +55,9 @@ html, body {
       font-weight: bold;
       flex:1;
       background: #f9b74f;
+      &:hover{
+        cursor:pointer;
+      }
       @media screen and (max-width: 944px) {
         margin: 0 auto;
       }
@@ -61,16 +67,73 @@ html, body {
   #map {
   width: 100%;
   height: 60%; 
-  /*background: blue;*/
-  }
+ }
 
   .result{
-    background: pink;
     width: 100%;
-    height: 70%;
-    position: absolute;
-    bottom: 5%;
-    left: 0;
+    display: flex;
+    padding: 2%;
+    border-radius: 10px;
+    background: #f7efef;
+    display: none;
+
+    ul{
+      list-style: none;
+      font-size: 2vw;
+      li{
+        display: flex;
+        align-items: center;
+        strong{
+          margin-left: auto;
+          font-size: 0.8em;
+        }
+      }
+    }
+    &__list-taxi{
+      margin: 0 4% 0 0;
+      padding: 0 2% 0 0;
+      flex: 3;
+      border-right: 3px solid grey;
+      li{
+        margin-bottom: 3%;
+        font-weight: bold;
+      }
+      li:last-child{
+        margin-bottom: 0;
+      }
+      img{
+        width: 3vw;
+        margin-right: 1vw;
+      }
+      .company{
+        display: flex;
+        align-items: center;
+      }
+    }
+     &__list-info{
+      margin: 0;
+      padding: 0;
+      flex: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+    }
   }
 }
 
+.nav{
+  background: #f7efef;
+  padding: 1%;
+  font-weight: bold;
+  font-size: 2.2vw;
+  a{
+    text-decoration: none;
+    color: black;
+    margin-right: 2%;
+  }
+
+  &__logo{
+    padding-right: 2%;
+    border-right: 2px solid black;
+  }
+}

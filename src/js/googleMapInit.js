@@ -29,6 +29,14 @@ var googleGeocoer;
     function creatDirection(position){
       routeService.route(directionsRequest,function(response,status){
          directionsDisplay.setDirections(response);
+         console.log(response);
+         if(status == "OK"){
+            response.routes[0].legs[0].distance.value
+            response.routes[0].legs[0].duration
+         }
+        
+         // для убера может response.routes[0]bounds
+
       })     
     }
 
@@ -117,6 +125,7 @@ var googleGeocoer;
          if (directionsRequest.origin && directionsRequest.destination) {
             deleteMarkers();
             creatDirection(directionsRequest); 
+            findTaxiBtn.disabled = false;
          }
         }
       });
@@ -134,6 +143,8 @@ var googleGeocoer;
          if (directionsRequest.origin && directionsRequest.destination) {
            creatDirection(directionsRequest);
            deleteMarkers()
+           findTaxiBtn.disabled = false;
+
          }
         }
       });
