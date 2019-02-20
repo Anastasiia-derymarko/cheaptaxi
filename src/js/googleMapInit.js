@@ -2,6 +2,8 @@ var map;
 var service;
 var infoWindow;
 var googleGeocoer;
+let infoList = document.querySelectorAll('.list-info li strong');
+
 
   function initMap() {
     let routeService = new google.maps.DirectionsService(map);
@@ -29,10 +31,12 @@ var googleGeocoer;
     function creatDirection(position){
       routeService.route(directionsRequest,function(response,status){
          directionsDisplay.setDirections(response);
-         console.log(response);
+         // console.log(response);
          if(status == "OK"){
-            response.routes[0].legs[0].distance.value
-            response.routes[0].legs[0].duration
+          let km = round(response.routes[0].legs[0].distance.value / 1000,2);
+            fare(km);
+            infoList[2].innerHTML = km + " км." ;
+            infoList[3].innerHTML = '~' + response.routes[0].legs[0].duration.text;
          }
         
          // для убера может response.routes[0]bounds
